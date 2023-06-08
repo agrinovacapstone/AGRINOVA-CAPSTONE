@@ -3,7 +3,7 @@ const fs = require('fs');
 
 async function run() {
   const MODEL_URL = 'file://./src/model/mango/output_files/model.json';
-  const IMAGE_PATH = '/home/el/Documents/AGRINOVA-CAPSTONE/20211231_123258 (Custom).jpg'; // path untuk lokasi gambar
+  const IMAGE_PATH = '\AGRINOVA-CAPSTONE\public\images\1686244629053-Screenshot 2023-05-22 142838.png'; // path untuk lokasi gambar
 
   const model = await tf.loadLayersModel(MODEL_URL);
 

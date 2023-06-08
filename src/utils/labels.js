@@ -10,3 +10,4 @@ const labelmanggo = [
 ];
 
 module.exports = {labelmanggo};
+
