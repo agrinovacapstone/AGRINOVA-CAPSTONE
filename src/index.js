@@ -17,7 +17,13 @@ app.use('/users', userRoutes);
 app.post('/upload',upload.single('photo'),(req, res) => {
     res.json({
         message: 'Upload berhasil'
-    })
+    });
+});
+
+app.post('/detect-disease',upload.single('disease'),(req, res) => {
+    res.json({
+        message: 'Disease Berhasil'
+    });
 });
 
 app.use((err, req, res, next) => {
