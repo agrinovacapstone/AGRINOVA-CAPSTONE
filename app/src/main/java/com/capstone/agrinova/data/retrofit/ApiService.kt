@@ -1,5 +1,6 @@
 package com.capstone.agrinova.data.retrofit
 
+import com.capstone.agrinova.data.response.AgrinovaResponse
 import retrofit2.Call
 import retrofit2.http.*
 
