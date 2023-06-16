@@ -49,6 +49,9 @@ class CameraFeatureFragment : Fragment() {
 
         binding.cardCamera.setOnClickListener { useCamera() }
         binding.cardGallery.setOnClickListener { openGallery() }
+
+        // Set the initial visibility of diagnose_button to invisible
+        binding.diagnoseButton.visibility = View.INVISIBLE
     }
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -57,13 +60,20 @@ class CameraFeatureFragment : Fragment() {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             bitmap = imageBitmap
             Glide.with(binding.previewImageView).load(imageBitmap).into(binding.previewImageView)
+
+            // Make the diagnose_button visible after capturing the image
+            binding.diagnoseButton.visibility = View.VISIBLE
         }
     }
+
     private val documentLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         val contentResolver = requireActivity().contentResolver
         val imageBitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
         bitmap = imageBitmap
         Glide.with(binding.previewImageView).load(imageBitmap).into(binding.previewImageView)
+
+        // Make the diagnose_button visible after selecting the image from the gallery
+        binding.diagnoseButton.visibility = View.VISIBLE
     }
 
     fun useCamera(){
